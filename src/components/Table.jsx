@@ -9,10 +9,10 @@ function Table() {
     return <Loading />;
   }
 
-  const ALLPLANETS = dataPlanets.results;
-  delete ALLPLANETS[0].residents;
+  const PLANETS = dataPlanets.results;
+  delete PLANETS[0].residents;
 
-  const THEADERS = Object.keys(ALLPLANETS[0]);
+  const THEADERS = Object.keys(PLANETS[0]);
 
   function transformLink(item) {
     if (Array.isArray(item)) { // verifica se o item é um array
@@ -46,8 +46,8 @@ function Table() {
       </thead>
       <tbody>
         {
-          ALLPLANETS.map((planet, i) => {
-            console.log(ALLPLANETS);
+          PLANETS.map((planet, i) => {
+            console.log(PLANETS);
             return (
               <tr key={ planet.name + i }>
                 {
