@@ -27,7 +27,7 @@ function App() {
 
   const [directionOrganization, setDiretctionOrganization] = useState('ASC');
 
-  const handleComparison = (e) => {
+  const handleComparationOfValues = (e) => {
     e.preventDefault();
     setCompared([...compared, {
       filterValue,
@@ -41,7 +41,7 @@ function App() {
     setFilterColunm(options[0]);
   };
 
-  const resetFilters = () => {
+  const resetedFiltersAll = () => {
     setCompared([]);
     const options = ['population', 'orbital_period', 'diameter',
       'rotation_period', 'surface_water'];
@@ -50,7 +50,7 @@ function App() {
     setFilterColunm(options[0]);
   };
 
-  const handleDeletion = (column) => {
+  const deleteFiltres = (column) => {
     const deleted = compared.filter((filter) => filter.filterColunm !== column);
     setCompared(deleted);
     setFilterColunmOption([...filterColunmOption, column]);
@@ -72,7 +72,7 @@ function App() {
       />
       <br />
       <form
-        onSubmit={ handleComparison }
+        onSubmit={ handleComparationOfValues }
       >
         <Select
           data-testid="column-filter"
@@ -151,7 +151,7 @@ function App() {
               </p>
               <button
                 type="button"
-                onClick={ () => handleDeletion(filter.filterColunm) }
+                onClick={ () => deleteFiltres(filter.filterColunm) }
               >
                 X
 
@@ -161,7 +161,7 @@ function App() {
         }
       </ul>
       <button
-        onClick={ resetFilters }
+        onClick={ resetedFiltersAll }
         data-testid="button-remove-filters"
       >
         Remover Filtros
