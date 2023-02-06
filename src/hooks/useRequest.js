@@ -1,11 +1,11 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 function useRequest() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
-  const fetchDataWithLoading = useCallback(async (url) => {
+  const fetchDataWithLoading = async (url) => {
     setIsLoading(true);
     setError(null);
     try {
@@ -17,7 +17,7 @@ function useRequest() {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  };
 
   return { data, isLoading, error, fetchDataWithLoading };
 }

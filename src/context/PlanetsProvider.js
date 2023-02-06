@@ -12,7 +12,9 @@ function PlanetsProvider({ children }) {
     }
 
     executeFetch();
-  }, [fetchDataWithLoading]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const value = useMemo(() => ({
     dataPlanets,
@@ -28,7 +30,6 @@ function PlanetsProvider({ children }) {
 }
 
 PlanetsProvider.propTypes = {
-  children: PropTypes.shape().isRequired,
-};
-
+  children: PropTypes.shape(),
+}.isRequired;
 export default PlanetsProvider;
